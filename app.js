@@ -17,7 +17,7 @@ async function getInfo() {
 							<i class="bi bi-pencil-square"></i><br />
 							
 						</div>
-						<div class="hover" data-toggle="modal" data-target="#modalDelete${user.id}">
+						<div class="hover" data-toggle="modal" data-target="#modalSupr${user.id}">
 							<i class="bi bi-x-circle"></i><br />
 							
 						</div>
@@ -34,30 +34,31 @@ async function getInfo() {
 					<!-- DELETE-->
 					<div
 						class="modal fade"
-						id="modalDelete${user.id}"
+						id="modalSupr${user.id}"
                         tabindex="-1"
                         aria-labelledby="exampleModalLabel"
 						aria-hidden="true"
 					>
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
-									<button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-								</div>
-								<div class="modal-body"> Are you sure you want to delete: # ${user.id} - ${user.username} ?</div>
-								<div class="modal-footer">
-									<div class="row">
-										<div class="col">
-											<button type="button" class="btn btn-secondary" data-dismiss="modal"> GO BACK</button>
-										</div>
-										<div class="col">
-											<button  type="button" class="btn btn-red" onclick="delete(${user.id});return false;"  data-dismiss="modal">DELETE</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Delete User o</h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body"> Are your sure you want to erase: # ${user.id} - ${user.username} ?</div>
+                        <div class="modal-footer">
+                            <div class="row">
+                                <div class="col">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+                                </div>
+                                <div class="col">
+                                    <button  type="button" class="btn btn-red" onclick="erase(${user.id});return false;"  data-dismiss="modal">DELETE</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 					</div>
 					<!-- EDIT-->
 					<div
@@ -147,7 +148,7 @@ const update = async (id, name, username, email, street) => {
 	}
 };
 
-const eliminar = async (id) => {
+const erase = async (id) => {
 	window.event.preventDefault();
 	console.log(id);
 
@@ -233,9 +234,8 @@ async function addInfox() {
 							<i class="bi bi-pencil-square"></i><br />
 							edit
 						</div>
-						<div data-toggle="modal" data-target="#modalDelete${user.id}">
+						<div data-toggle="modal" data-target="#modalSupr${user.id}">
 							<i class="bi bi-x-circle"></i><br />
-							delete
 						</div>
 					</div>
 					<img class="img-fluid" src="" alt="" />
@@ -248,7 +248,7 @@ async function addInfox() {
 
 					<div
 						class="modal fade"
-						id="modalDelete${user.id}"
+						id="modalSupr${user.id}"
 						tabindex="-1"
 						aria-labelledby="exampleModalLabel"
 						aria-hidden="true"
@@ -266,7 +266,7 @@ async function addInfox() {
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
 										</div>
 										<div class="col">
-											<button type="button" class="btn btn-red" onclick="delete(${user.id})" data-dismiss="modal">Delete User</button>
+											<button type="button" class="btn btn-red" onclick="erase(${user.id})" data-dismiss="modal">Delete User</button>
 										</div>
 									</div>
 								</div>
