@@ -15,11 +15,11 @@ async function getInfo() {
 					<div class="d-flex justify-content-between">
 						<div class="hover" data-toggle="modal" data-target="#modalEdit${user.id}">
 							<i class="bi bi-pencil-square"></i><br />
-							edit
+							
 						</div>
 						<div class="hover" data-toggle="modal" data-target="#modalDelete${user.id}">
 							<i class="bi bi-x-circle"></i><br />
-							delete
+							
 						</div>
 					</div>
 					<img class="img-fluid" src="" alt="" />
@@ -197,7 +197,7 @@ const addInfo = async () => {
 		const data = await fetch(url, params);
 		const result = await data.json();
 		console.log(result);
-		obtenerInfo();
+		getInfo();
 	} catch (err) {
 		console.log(err);
 	}
