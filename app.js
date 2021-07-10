@@ -172,13 +172,6 @@ const addInfo = async () => {
 			email: document.getElementById("email").value,
 			address: {
 				street: document.getElementById("street").value,
-				suite: document.getElementById("suite").value,
-				city: document.getElementById("city").value,
-				zipcode: document.getElementById("zipcode").value,
-				geo: {
-					lat: document.getElementById("lat").value,
-					lng: document.getElementById("lng").value,
-				},
 			},
 		};
 		console.log(datos);
@@ -203,18 +196,16 @@ const addInfo = async () => {
 	}
 };
 
-async function agregarInfox() {
+async function addInfox() {
 	try {
-		const infoCarritos = await fetch("http://localhost:3000/users");
-		//console.log(infoCarritos);
-		//const infoCarrito = await infoCarritos.json();
-		let infoCarrito = await infoCarritos.json();
+		const infoUsers = await fetch("http://localhost:3000/users");
+
+		let infoUser = await infoUsers.json();
 
 		let hola = "hola";
 
-		const infoCarritoMODAL = {
-			//	id: document.getElementById('id').value,
-			id: infoCarrito.length + 1,
+		const infoUserMODAL = {
+			id: infoUser.length + 1,
 			name: document.getElementById("name").value,
 			username: document.getElementById("username").value,
 			email: document.getElementById("email").value,
@@ -223,7 +214,7 @@ async function agregarInfox() {
 			},
 		};
 
-		infoCarrito = [...infoCarrito, infoCarritoMODAL];
+		infoUser = [...infoUser, infoUserMODAL];
 
 		document.getElementById("id").value = "";
 		document.getElementById("name").value = "";
@@ -232,7 +223,7 @@ async function agregarInfox() {
 		document.getElementById("street").value = "";
 
 		let template = "";
-		infoCarrito.forEach((user) => {
+		infoUser.forEach((user) => {
 			template += `
 
 			<div id="${user.id}"" class="item col-md-3 col-6">
