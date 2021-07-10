@@ -220,17 +220,9 @@ async function agregarInfox() {
 			email: document.getElementById("email").value,
 			address: {
 				street: document.getElementById("street").value,
-				suite: document.getElementById("suite").value,
-				city: document.getElementById("city").value,
-				zipcode: document.getElementById("zipcode").value,
-				lat: document.getElementById("lat").value,
-				lng: document.getElementById("lng").value,
 			},
 		};
-		//console.log(infoCarrito.length);
-		//console.log(infoCarritos);
-		//console.log(infoCarrito);
-		//console.log(infoCarritoMODAL);
+
 		infoCarrito = [...infoCarrito, infoCarritoMODAL];
 
 		document.getElementById("id").value = "";
@@ -238,12 +230,6 @@ async function agregarInfox() {
 		document.getElementById("username").value = "";
 		document.getElementById("email").value = "";
 		document.getElementById("street").value = "";
-		document.getElementById("suite").value = "";
-		document.getElementById("city").value = "";
-		document.getElementById("zipcode").value = "";
-		document.getElementById("lat").value = "";
-		document.getElementById("lng").value = "";
-		//console.log(infoCarrito);
 
 		let template = "";
 		infoCarrito.forEach((user) => {
