@@ -29,7 +29,7 @@ async function getInfo() {
 						<hr>
 						<div>E-mail : ${user.email}</div>
 						<hr>
-						<div>Address : ${user.address}</div>
+						<div>Address : ${user.address.street}</div>
 					</div>
 					<!-- DELETE-->
 					<div
@@ -117,7 +117,7 @@ const update = async (id, name, username, email, street) => {
 
 	event.preventDefault();
 	try {
-		const data = {
+		const dato = {
 			id: id,
 			name: name,
 			username: username,
@@ -126,7 +126,7 @@ const update = async (id, name, username, email, street) => {
 				street: street,
 			},
 		};
-		console.log(data);
+		console.log(dato);
 
 		const url = `http://localhost:3000/users/${id}`;
 
@@ -136,7 +136,7 @@ const update = async (id, name, username, email, street) => {
 				"Content-Type": "application/json",
 			},
 
-			body: JSON.stringify(data),
+			body: JSON.stringify(dato),
 		};
 		const upData = await fetch(url, params);
 		const result = await upData.json();
@@ -166,7 +166,7 @@ const eliminar = async (id) => {
 const addInfo = async () => {
 	event.preventDefault();
 	try {
-		const datos = {
+		const dato = {
 			name: document.getElementById("name").value,
 			username: document.getElementById("username").value,
 			email: document.getElementById("email").value,
@@ -174,7 +174,7 @@ const addInfo = async () => {
 				street: document.getElementById("street").value,
 			},
 		};
-		console.log(datos);
+		console.log(dato);
 
 		const url = "http://localhost:3000/users";
 
@@ -185,7 +185,7 @@ const addInfo = async () => {
 				// 'Content-Type': 'application/x-www-form-urlencoded',
 			},
 
-			body: JSON.stringify(datos),
+			body: JSON.stringify(dato),
 		};
 		const data = await fetch(url, params);
 		const result = await data.json();
