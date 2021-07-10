@@ -40,167 +40,161 @@
 		"
 	>
 		<!-- START -->
-		<div id="list">
-			<!-- NAVIGATION BAR -->
-			<nav class="navbar navbar-expand-lg navbar">
-				<div class="container-fluid">
-					<!-- THIS IS THE LOGO -->
-					<a class="navbar-brand" href="#" style="color: white"> User Database</a>
-					<!-- THIS IS THE RESPONSIVE MENU -->
-					<div class="d-flex">
-						<!-- THIS THE BUTTON TO ADD -->
-						<button
-							class="btn-add"
-							@click="create"
-							data-toggle="modal"
-							data-target="#modalAdd"
-						>
-							ADD USER
-						</button>
-					</div>
+		<!-- NAVIGATION BAR -->
+		<nav class="navbar navbar-expand-lg navbar">
+			<div class="container-fluid">
+				<!-- THIS IS THE LOGO -->
+				<a class="navbar-brand" href="#" style="color: white"> User Database</a>
+				<!-- THIS IS THE RESPONSIVE MENU -->
+				<div class="d-flex">
+					<!-- THIS THE BUTTON TO ADD -->
+					<button
+						class="btn-add"
+						@click="create"
+						data-toggle="modal"
+						data-target="#modalAdd"
+					>
+						ADD USER
+					</button>
 				</div>
-			</nav>
-			<!-- END OF NAVIGATION BAR -->
-			<div class="container">
-				<div class="row">
-					<div class="item col-md-3 col-6">
-						<div class="p-2 product-block">
-							<div class="d-flex justify-content-between">
-								<!-- EDIT ACTION-->
-								<div
-									@click="edit(index, video.id)"
-									data-toggle="modal"
-									data-target="#modalEdit{{video.id}}"
-								>
-									<i class="bi bi-pencil-square"></i><br />
-								</div>
-								<!-- DELETE ICON-->
-								<div data-toggle="modal" data-target="#modalDelete">
-									<i class="bi bi-x-circle"></i><br />
-								</div>
-							</div>
-
-							<img class="img-fluid" src="" alt="" />
-
-							<div class="caption">
-								<h5>Name :</h5>
-								<h6>Username:</h6>
-								<div>E-mail:</div>
-								<div>Address:</div>
-							</div>
-							<!-- DELETE ACTION-->
+			</div>
+		</nav>
+		<!-- END OF NAVIGATION BAR -->
+		<div class="container">
+			<div id="list" class="row">
+				<div class="item col-md-3 col-6">
+					<div class="p-2 product-block">
+						<div class="d-flex justify-content-between">
+							<!-- EDIT ACTION-->
 							<div
-								class="modal fade"
-								id="modalDelete"
-								tabindex="-1"
-								aria-labelledby="exampleModalLabel"
-								aria-hidden="true"
+								@click="edit(index, video.id)"
+								data-toggle="modal"
+								data-target="#modalEdit{{video.id}}"
 							>
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
-											<button
-												type="button"
-												class="btn-close"
-												data-dismiss="modal"
-												aria-label="Close"
-											></button>
-										</div>
-										<div class="modal-body">
-											Are you sure you want to delete this user ?
-										</div>
-										<div class="modal-footer">
-											<div class="row">
-												<div class="col">
-													<button
-														type="button"
-														class="btn btn-secondary"
-														data-dismiss="modal"
-													>
-														GO BACK
-													</button>
-												</div>
-												<div class="col">
-													<button type="button" class="btn btn-red" data-dismiss="modal">
-														DELETE
-													</button>
-												</div>
+								<i class="bi bi-pencil-square"></i><br />
+							</div>
+							<!-- DELETE ICON-->
+							<div data-toggle="modal" data-target="#modalDelete">
+								<i class="bi bi-x-circle"></i><br />
+							</div>
+						</div>
+
+						<img class="img-fluid" src="" alt="" />
+
+						<div class="caption">
+							<h5>Name :</h5>
+							<h6>Username:</h6>
+							<div>E-mail:</div>
+							<div>Address:</div>
+						</div>
+						<!-- DELETE ACTION-->
+						<div
+							class="modal fade"
+							id="modalDelete"
+							tabindex="-1"
+							aria-labelledby="exampleModalLabel"
+							aria-hidden="true"
+						>
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+										<button
+											type="button"
+											class="btn-close"
+											data-dismiss="modal"
+											aria-label="Close"
+										></button>
+									</div>
+									<div class="modal-body">
+										Are you sure you want to delete this user ?
+									</div>
+									<div class="modal-footer">
+										<div class="row">
+											<div class="col">
+												<button
+													type="button"
+													class="btn btn-secondary"
+													data-dismiss="modal"
+												>
+													GO BACK
+												</button>
+											</div>
+											<div class="col">
+												<button type="button" class="btn btn-red" data-dismiss="modal">
+													DELETE
+												</button>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<!-- END OF DELETE ACTION-->
-							<!-- EDIT ACTION-->
-							<div
-								class="modal fade"
-								id="modalEdit"
-								tabindex="-1"
-								role="dialog"
-								aria-labelledby="exampleModalLabel"
-								aria-hidden="true"
-							>
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h5 class="modal-title" id="exampleModalLabel">EDIT</h5>
-											<button
-												type="button"
-												class="btn-close"
-												data-dismiss="modal"
-												aria-label="Close"
-											>
-												<span aria-hidden="true"></span>
-											</button>
-										</div>
-										<div class="modal-body">
-											<input
-												class="form-control"
-												type="text"
-												id="idUser"
-												placeholder="Add ID"
-												hidden
-											/>
-											<input
-												class="form-control"
-												type="text"
-												id="nameUser"
-												placeholder="Add name"
-											/>
-											<input
-												class="form-control"
-												type="text"
-												id="usernameUser"
-												placeholder="Add username"
-												hidden
-											/>
-											<input
-												class="form-control"
-												type="text"
-												id="emailUser"
-												placeholder="Add e-mail"
-											/>
+						</div>
+						<!-- END OF DELETE ACTION-->
+						<!-- EDIT ACTION-->
+						<div
+							class="modal fade"
+							id="modalEdit"
+							tabindex="-1"
+							role="dialog"
+							aria-labelledby="exampleModalLabel"
+							aria-hidden="true"
+						>
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">EDIT</h5>
+										<button
+											type="button"
+											class="btn-close"
+											data-dismiss="modal"
+											aria-label="Close"
+										>
+											<span aria-hidden="true"></span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<input
+											class="form-control"
+											type="text"
+											id="idUser"
+											placeholder="Add ID"
+											hidden
+										/>
+										<input
+											class="form-control"
+											type="text"
+											id="nameUser"
+											placeholder="Add name"
+										/>
+										<input
+											class="form-control"
+											type="text"
+											id="usernameUser"
+											placeholder="Add username"
+											hidden
+										/>
+										<input
+											class="form-control"
+											type="text"
+											id="emailUser"
+											placeholder="Add e-mail"
+										/>
 
-											<input
-												class="form-control"
-												type="text"
-												id="streetUser"
-												placeholder="Add street"
-											/>
-										</div>
-										<div class="modal-footer">
-											<button
-												type="button"
-												class="btn btn-secondary"
-												data-dismiss="modal"
-											>
-												CLOSE
-											</button>
-											<button type="button" class="btn btn-red" data-dismiss="modal">
-												SAVE
-											</button>
-										</div>
+										<input
+											class="form-control"
+											type="text"
+											id="streetUser"
+											placeholder="Add street"
+										/>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">
+											CLOSE
+										</button>
+										<button type="button" class="btn btn-red" data-dismiss="modal">
+											SAVE
+										</button>
 									</div>
 								</div>
 							</div>
@@ -208,82 +202,78 @@
 					</div>
 				</div>
 			</div>
-			<!-- Modal AGREGAR-->
-			<div
-				class="modal fade"
-				id="modalAgregar"
-				tabindex="-1"
-				role="dialog"
-				aria-labelledby="exampleModalLabel"
-				aria-hidden="true"
-			>
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">ADD USER</h5>
+		</div>
+		<!-- Modal AGREGAR-->
+		<div
+			class="modal fade"
+			id="modalAgregar"
+			tabindex="-1"
+			role="dialog"
+			aria-labelledby="exampleModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">ADD USER</h5>
+						<button
+							type="button"
+							class="btn-close"
+							data-dismiss="modal"
+							aria-label="Close"
+						>
+							<span aria-hidden="true"></span>
+						</button>
+					</div>
+
+					<form id="formulario">
+						<div class="modal-body">
+							<input
+								class="form-control"
+								type="text"
+								id="id"
+								placeholder="Add ID"
+								hidden
+							/>
+							<input class="form-control" type="text" id="name" placeholder="Add name" />
+							<input
+								class="form-control"
+								type="text"
+								id="username"
+								placeholder="Add username"
+							/>
+							<input
+								class="form-control"
+								type="text"
+								id="email"
+								placeholder="Add e-mail"
+							/>
+
+							<input
+								class="form-control"
+								type="text"
+								id="street"
+								placeholder="Add street"
+							/>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">
+								CLOSE
+							</button>
 							<button
-								type="button"
-								class="btn-close"
+								type="submit"
+								class="btn btn-red"
 								data-dismiss="modal"
-								aria-label="Close"
+								onclick="addInfo()"
 							>
-								<span aria-hidden="true"></span>
+								SAVE
 							</button>
 						</div>
-
-						<form id="formulario">
-							<div class="modal-body">
-								<input
-									class="form-control"
-									type="text"
-									id="id"
-									placeholder="Add ID"
-									hidden
-								/>
-								<input
-									class="form-control"
-									type="text"
-									id="name"
-									placeholder="Add name"
-								/>
-								<input
-									class="form-control"
-									type="text"
-									id="username"
-									placeholder="Add username"
-								/>
-								<input
-									class="form-control"
-									type="text"
-									id="email"
-									placeholder="Add e-mail"
-								/>
-
-								<input
-									class="form-control"
-									type="text"
-									id="street"
-									placeholder="Add street"
-								/>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">
-									CLOSE
-								</button>
-								<button
-									type="submit"
-									class="btn btn-red"
-									data-dismiss="modal"
-									onclick="addInfo()"
-								>
-									SAVE
-								</button>
-							</div>
-						</form>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
+
 		<!-- SCRIPTS -->
 		<script
 			src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
